@@ -1,0 +1,16 @@
+---
+- hosts: 192.168.56.107
+  become: true
+  tasks:
+
+  - name: install httpd package
+    dnf:
+     name: httpd
+     state: present
+     update_cache: yes
+
+  - name: starting httpd service
+    service: 
+     name: httpd
+     state: started
+     enabled: yes 
